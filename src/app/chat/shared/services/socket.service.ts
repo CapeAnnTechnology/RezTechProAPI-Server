@@ -6,7 +6,7 @@ import { Event } from '../model/event';
 
 import * as socketIo from 'socket.io-client';
 
-const SERVER_URL = 'http://10.211.55.16:8080';
+const SERVER_URL = 'https://reztechpro-api.herokuapp.com';
 
 @Injectable()
 export class SocketService {
