@@ -3,10 +3,13 @@ import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { Message } from '../model/message';
 import { Event } from '../model/event';
+import { Guest } from '../model/Guest';
+
+import { environment } from './../../../../environments/environment';
 
 import * as socketIo from 'socket.io-client';
 
-const SERVER_URL = 'https://reztechpro-api.herokuapp.com';
+const SERVER_URL = environment.SERVER_URL;
 
 @Injectable()
 export class SocketService {
@@ -18,6 +21,10 @@ export class SocketService {
 
     public send(message: Message): void {
         this.socket.emit('message', message);
+    }
+
+    public guest(guest: Guest): void {
+        this.socket.emit('guest', guest);
     }
 
     public onMessage(): Observable<Message> {

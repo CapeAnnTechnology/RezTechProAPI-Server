@@ -23,14 +23,23 @@
     <div class="chat-footer-container">
       <mat-icon>message</mat-icon>
       <mat-form-field class="chat-input">
-        <input matInput 
-               #inputMessage 
-               maxlength="140" 
-               placeholder="Type your message" 
-               [(ngModel)]="messageContent" 
+        <input matInput
+               #inputMessage
+               maxlength="140"
+               placeholder="Type your message"
+               [(ngModel)]="messageContent"
                (keyup.enter)="sendMessage(messageContent)">
         <mat-hint align="end">{{inputMessage.value.length}}/140</mat-hint>
       </mat-form-field>
+      <mat-icon>repeat</mat-icon>
+        <button mat-raised-button
+               #incomingGuest
+               color="primary"
+               (click)="sendGuestEnter()">Incoming</button>
+        <button mat-raised-button
+               #exitingGuest
+               color="warn"
+               (click)="sendGuestExit()">Departing</button>
     </div>
   </mat-card>
 </div>

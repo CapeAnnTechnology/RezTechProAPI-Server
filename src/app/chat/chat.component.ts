@@ -22,6 +22,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
   user: User;
   messages: Message[] = [];
   messageContent: string;
+  guestContent: string;
   ioConnection: any;
   dialogRef: MatDialogRef<DialogUserComponent> | null;
   defaultDialogUserParams: any = {
@@ -134,6 +135,20 @@ export class ChatComponent implements OnInit, AfterViewInit {
       content: message
     });
     this.messageContent = null;
+  }
+
+  public sendGuestEnter(): void {
+    this.socketService.guest({
+      from: this.user,
+      action: Action.ENTER
+    });
+  }
+
+  public sendGuestExit(): void {
+    this.socketService.guest({
+      from: this.user,
+      action: Action.EXIT
+    });
   }
 
   public sendNotification(params: any, action: Action): void {
