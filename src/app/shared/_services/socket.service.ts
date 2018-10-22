@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-import { Message } from '../model/message';
-import { Event } from '../model/event';
-import { Guest } from '../model/Guest';
+import { EventModel, GuestModel, MessageModel } from './../_models';
 
-import { environment } from './../../../../environments/environment';
+import { environment } from './../../../environments/environment';
 
 import * as socketIo from 'socket.io-client';
 
@@ -19,22 +17,22 @@ export class SocketService {
         this.socket = socketIo(SERVER_URL);
     }
 
-    public send(message: Message): void {
+    public send(message: MessageModel): void {
         this.socket.emit('message', message);
     }
 
-    public guest(guest: Guest): void {
+    public guest(guest: GuestModel): void {
         this.socket.emit('guest', guest);
     }
 
-    public onMessage(): Observable<Message> {
-        return new Observable<Message>(observer => {
-            this.socket.on('message', (data: Message) => observer.next(data));
+    public onMessage(): Observable<MessageModel> {
+        return new Observable<MessageModel>(observer => {
+            this.socket.on('message', (data: MessageModel) => observer.next(data));
         });
     }
 
-    public onEvent(event: Event): Observable<any> {
-        return new Observable<Event>(observer => {
+    public onEvent(event: EventModel): Observable<any> {
+        return new Observable<EventModel>(observer => {
             this.socket.on(event, () => observer.next());
         });
     }

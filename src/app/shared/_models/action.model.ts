@@ -1,4 +1,4 @@
-export enum Action {
+export enum ActionModel {
     JOINED,
     LEFT,
     RENAME,

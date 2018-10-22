@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'tcc-dialog-user',
+  selector: 'rez-dialog-user',
   templateUrl: './dialog-user.component.html',
   styleUrls: ['./dialog-user.component.scss']
 })

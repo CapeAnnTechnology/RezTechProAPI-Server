@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MaterialModule } from '../shared/material/material.module';
+import { SharedModule } from './../shared';
+import { SocketService } from './../shared/_services';
 
 import { ChatComponent } from './chat.component';
-import { SocketService } from './shared/services/socket.service';
 import { DialogUserComponent } from './dialog-user/dialog-user.component';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { DialogUserComponent } from './dialog-user/dialog-user.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    SharedModule
   ],
   declarations: [ChatComponent, DialogUserComponent],
   providers: [SocketService],

@@ -4,7 +4,14 @@
 
 export const environment = {
   production: false,
-  SERVER_URL: 'http://10.211.55.16:8080'
+  SERVER_URL: 'http://10.211.55.16:3000',
+  SSO_URI: 'https://reztechpro-sso.herokuapp.com/',
+  API_URI: 'http://10.211.55.16:3000/v3.0/',
+  BASE_API: 'http://10.211.55.16:3000/v3.0/',
+  BASE_URI: 'http://10.211.55.16:4200',
+  AUTH0_CLIENT_DOMAIN: 'reztechpro.auth0.com',
+  AUTH0_CLIENT_ID: 'SJLqm1Itq4vSMmc8NhEl59AgV5zVAHTu',
+  NAMESPACE: 'https://reztechpro.com/roles'
 };
 
 /*

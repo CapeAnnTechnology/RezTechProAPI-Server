@@ -1,0 +1,11 @@
+
+<mat-form-field>
+	<mat-select [(value)]="selected">
+		<mat-option value="">Select Room</mat-option>
+		<mat-option value="5bc8b35f1b421440768f0f73">Main Ballroom</mat-option>
+		<mat-option value="5bc8b35f1b421440768f0f76">Patio</mat-option>
+		<mat-option value="5bc8b35f1b421440768f0f7a">VIP Room</mat-option>
+	</mat-select>
+</mat-form-field>
+
+<capacity-room [room]="selected" *ngIf="selected"></capacity-room>

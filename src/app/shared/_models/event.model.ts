@@ -1,4 +1,4 @@
-export enum Event {
+export enum EventModel {
     CONNECT = 'connect',
     DISCONNECT = 'disconnect'
 }

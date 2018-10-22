@@ -10,6 +10,7 @@
     "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
+    "serve": "ng serve --host=0.0.0.0 --poll=2000",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --aot --prod"
@@ -29,6 +30,8 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@swimlane/ngx-charts": "^9.0.0",
+    "auth0-js": "^9.8.0",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "path": "^0.12.7",

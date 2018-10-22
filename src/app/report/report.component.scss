@@ -1,0 +1,21 @@
+.full-width-card {
+	    // display: inline-block;
+	    margin: 20px;
+	    vertical-align: top;
+	    // cursor: pointer;
+	}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.chart-parent{
+     min-height: 400px;
+}

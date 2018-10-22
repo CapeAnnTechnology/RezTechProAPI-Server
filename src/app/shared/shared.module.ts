@@ -10,6 +10,7 @@ import { MaterialModule } from './material/material.module';
   exports: [
     MaterialModule
   ],
+  providers: [],
   declarations: []
 })
 export class SharedModule { }
