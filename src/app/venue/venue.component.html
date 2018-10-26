@@ -1,4 +1,8 @@
 <div class="mat-app-background basic-container">
+<a routerLink="/venue/add" mat-button color="accent" class="alignright" style="float: right;">
+    <mat-icon mat-list-icon>add</mat-icon>ADD VENUE
+</a>
+<h2>{{pageTitle}}</h2>
 <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -7,7 +11,7 @@
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let venue"> <a [routerLink]="['/venue/', venue._id]">{{venue.name}}</a> </td>
+    <td mat-cell *matCellDef="let venue"> {{venue.name}}</td>
   </ng-container>
 
   <ng-container matColumnDef="rooms">
@@ -29,9 +33,17 @@
   <ng-container matColumnDef="buttons">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let venue">
-          <a mat-button [routerLink]="['/venue/', venue._id]">
-            <mat-icon mat-list-icon>local_bar</mat-icon>
+          <a mat-button [routerLink]="['/venue', venue._id]">
+            <mat-icon mat-list-icon>location_city</mat-icon>
             <span mat-line>View Venue</span>
+          </a>
+          <a mat-button [routerLink]="['/venue', venue._id, 'edit']">
+            <mat-icon mat-list-icon>edit</mat-icon>
+            <span mat-line>Edit Venue</span>
+          </a>
+          <a mat-button [routerLink]="['/venue', venue._id,'rooms']">
+            <mat-icon mat-list-icon>local_bar</mat-icon>
+            <span mat-line>View Rooms</span>
           </a>
         </td>
     </ng-container>

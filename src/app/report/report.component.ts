@@ -3,7 +3,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @Component({
-  selector: 'report',
+  selector: 'rez-report',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss']
 })

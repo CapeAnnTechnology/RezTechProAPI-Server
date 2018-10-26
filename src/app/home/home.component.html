@@ -1,6 +1,7 @@
+<div *ngIf="auth.loggedIn">
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-icon mat-card-avatar mat-list-icon class="md-36">local_bar</mat-icon>
+    <mat-icon mat-card-avatar mat-list-icon class="md-36">location_city</mat-icon>
     <mat-card-title>Venue</mat-card-title>
     <mat-card-subtitle>Track Real Time Capacities</mat-card-subtitle>
   </mat-card-header>
@@ -9,9 +10,8 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <a mat-list-item routerLink="venue">
-      <button mat-flat-button>VENUE</button>
-    </a>
+    <a routerLink="/venue" mat-flat-button>VIEW VENUES</a>&nbsp;
+    <a routerLink="/venue/add" mat-flat-button color="accent">ADD VENUE</a>
   </mat-card-actions>
 </mat-card>
 
@@ -26,7 +26,7 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-  	<a mat-list-item routerLink="capacity">
+  	<a mat-list-item routerLink="/capacity">
     	<button mat-flat-button>CAPACITY</button>
   	</a>
   </mat-card-actions>
@@ -43,13 +43,13 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-  	<a mat-list-item routerLink="chat">
+  	<a mat-list-item routerLink="/chat">
     	<button mat-flat-button>CHAT</button>
   	</a>
   </mat-card-actions>
 </mat-card>
 
-<mat-card class="example-card">
+<mat-card class="example-card" *ngIf="auth.loggedIn && auth.isAdmin">
   <mat-card-header>
     <mat-icon mat-card-avatar mat-list-icon class="md-36">insert_chart</mat-icon>
     <mat-card-title>Reports</mat-card-title>
@@ -65,7 +65,7 @@
   </mat-card-actions>
 </mat-card>
 
-<mat-card class="example-card">
+<mat-card class="example-card" *ngIf="auth.loggedIn && auth.isAdmin">
   <mat-card-header>
     <mat-icon mat-card-avatar mat-list-icon class="md-36">format_list_bulleted</mat-icon>
     <mat-card-title>Logs</mat-card-title>
@@ -81,4 +81,24 @@
   </mat-card-actions>
 </mat-card>
 
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-icon mat-card-avatar mat-list-icon class="md-36">help</mat-icon>
+    <mat-card-title>Help</mat-card-title>
+    <mat-card-subtitle>Help & Support</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p> Vivamus vel dolor rhoncus, consequat dui a, vulputate ex. Duis vel erat risus. Nulla ultricies sem in facilisis consectetur.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-list-item routerLink="/help">
+      <button mat-flat-button>HELP</button>
+    </a>
+  </mat-card-actions>
+</mat-card>
 
+</div>
+<div *ngIf="!auth.loggedIn">
+<p>Please Login to View Content!</p>
+</div>

@@ -10,7 +10,7 @@ export interface Room {
 }
 
 @Component({
-  selector: 'capacity-room',
+  selector: 'rez-capacity-room',
   templateUrl: './capacity-room.component.html',
   styleUrls: ['./capacity-room.component.scss']
 })
@@ -45,20 +45,6 @@ export class CapacityRoomComponent implements OnInit {
       .subscribe(() => {
         console.log('disconnected');
       });
-  }
-
-  public sendGuestEnter(): void {
-    this.socketService.guest({
-      from: this.user,
-      action: ActionModel.ENTER
-    });
-  }
-
-  public sendGuestExit(): void {
-    this.socketService.guest({
-      from: this.user,
-      action: ActionModel.EXIT
-    });
   }
 
 }

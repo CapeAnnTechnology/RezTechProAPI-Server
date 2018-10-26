@@ -136,20 +136,6 @@ export class ChatComponent implements OnInit, AfterViewInit {
     this.messageContent = null;
   }
 
-  public sendGuestEnter(): void {
-    this.socketService.guest({
-      from: this.user,
-      action: ActionModel.ENTER
-    });
-  }
-
-  public sendGuestExit(): void {
-    this.socketService.guest({
-      from: this.user,
-      action: ActionModel.EXIT
-    });
-  }
-
   public sendNotification(params: any, action: ActionModel): void {
     let message: MessageModel;
 

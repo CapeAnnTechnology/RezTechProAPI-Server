@@ -3,6 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { EventModel, GuestModel, MessageModel } from './../_models';
 
+import { RoomModel } from './../../room/_models/room.model';
+
 import { environment } from './../../../environments/environment';
 
 import * as socketIo from 'socket.io-client';
@@ -28,6 +30,12 @@ export class SocketService {
     public onMessage(): Observable<MessageModel> {
         return new Observable<MessageModel>(observer => {
             this.socket.on('message', (data: MessageModel) => observer.next(data));
+        });
+    }
+
+    public onRoom(): Observable<RoomModel> {
+        return new Observable<RoomModel>(observer => {
+            this.socket.on('room', (data: RoomModel) => observer.next(data));
         });
     }
 

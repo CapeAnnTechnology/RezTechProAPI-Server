@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'rez-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
   }
 
   onToggle( toggle: boolean ) {
-    console.log( 'Toggle Sidenav' );
     this.opened = !this.opened;
   }
 }

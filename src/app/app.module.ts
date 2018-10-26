@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material/material.module';
 
+import { AuthService } from './shared/_services';
 
 import { ChatModule } from './chat/chat.module';
 import { CapacityModule } from './capacity/capacity.module';
@@ -23,9 +24,11 @@ import { ReportComponent } from './report/report.component';
 import { LogComponent } from './log/log.component';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+// import { LoadingComponent } from './shared/loading.component';
+import { CallbackComponent } from './pages/callback/callback.component';
+import { HelpComponent } from './pages/help/help.component';
 
-
-
+// import { LoadingComponent } from './shared/loading.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     HomeComponent,
     ReportComponent,
     LogComponent,
+    // LoadingComponent,
+    CallbackComponent,
+    HelpComponent,
     // VenueComponent
   ],
   imports: [
@@ -50,7 +56,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     // VenueModule,
     NgxChartsModule
   ],
-  providers: [Title],
+  providers: [Title, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

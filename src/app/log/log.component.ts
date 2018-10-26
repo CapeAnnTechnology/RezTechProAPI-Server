@@ -21,7 +21,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'log',
+  selector: 'rez-log',
   templateUrl: './log.component.html',
   styleUrls: ['./log.component.scss']
 })

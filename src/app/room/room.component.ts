@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'room',
+  selector: 'rez-room',
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.scss']
 })

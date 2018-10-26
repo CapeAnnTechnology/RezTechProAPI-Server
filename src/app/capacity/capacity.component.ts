@@ -8,7 +8,7 @@ export interface Room {
 }
 
 @Component({
-  selector: 'cat-capacity',
+  selector: 'rez-capacity',
   templateUrl: './capacity.component.html',
   styleUrls: ['./capacity.component.scss']
 })

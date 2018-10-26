@@ -1,0 +1,51 @@
+<div class="mat-app-background basic-container">
+<rez-loading *ngIf="loading"></rez-loading>
+<ng-template [ngIf]="utils.isLoaded(loading)">
+
+<a routerLink="['/rooms','add']" mat-button color="accent" class="alignright" style="float: right;">
+    <mat-icon mat-list-icon>add</mat-icon>ADD ROOM
+</a>
+<h2>{{pageTitle}}</h2>
+<ng-template [ngIf]="rooms">
+  <mat-card class="example-card" *ngFor="let room of rooms">
+  <mat-card-header>
+    <mat-icon mat-card-avatar mat-list-icon class="md-40">local_bar</mat-icon>
+    <mat-card-title>{{room.title}}</mat-card-title>
+    <mat-card-subtitle>Venue: {{room.venueId.title}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      <span>Occupancy:</span> {{room.occupancy}}
+      <span>Capacity:</span> {{room.capacity}}
+      <span>Filled:</span> {{room.progress}}%
+    </p>
+    <ng-template [ngIf]="room.progress">
+      <p >
+        <mat-progress-bar mode="determinate" value="{{room.progress}}"></mat-progress-bar>
+      </p>
+    </ng-template>
+    <ng-template [ngIf]="!room.progress">
+      <p >
+      </p>
+    </ng-template>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-button [routerLink]="['/room', room._id, 'doors']"><mat-icon>meeting_room</mat-icon> VIEW DOORS</a>
+    <a mat-button [routerLink]="['/room', room._id]"><mat-icon>local_bar</mat-icon> VIEW ROOM DETAILS</a>
+    <a mat-button [routerLink]="['/room', room._id, 'edit']"><mat-icon>edit</mat-icon> EDIT ROOM</a>
+  </mat-card-actions>
+</mat-card>
+
+<!-- No rooms available -->
+<p *ngIf="!rooms.length" class="alert alert-info">
+  No rooms have been created yet.
+  <a mat-button [routerLink]="['/room', id, 'add']">ADD ROOM</a>
+</p>
+
+</ng-template>
+  <!-- Error loading events -->
+  <p *ngIf="error" class="alert alert-danger">
+    <strong>Oops!</strong> There was an error retrieving information for this room.
+  </p>
+</ng-template>
+</div>
