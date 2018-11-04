@@ -1,0 +1,27 @@
+<h3>Businesses</h3>
+<mat-list>
+  <ng-template ngFor let-business [ngForOf]="businesses">
+    <mat-list-item class="business">
+      <mat-icon>domain</mat-icon> {{business.title}}
+    </mat-list-item>
+    <mat-list>
+      <ng-template ngFor let-venue [ngForOf]="business.venues">
+        <mat-list-item class="venue">
+          <mat-icon>location_city</mat-icon> {{venue.title}}
+        </mat-list-item>
+        <mat-list>
+          <ng-template ngFor let-room [ngForOf]="venue.rooms">
+          <mat-list-item class="room">
+          <mat-icon>local_bar</mat-icon> {{room.title}}
+          </mat-list-item>
+          <ng-template ngFor let-door [ngForOf]="room.doors">
+          <mat-list-item class="door">
+          <mat-icon>meeting_room</mat-icon> {{door.title}}
+          </mat-list-item>
+          </ng-template>
+          </ng-template>
+        </mat-list>
+      </ng-template>
+    </mat-list>
+  </ng-template>
+</mat-list>

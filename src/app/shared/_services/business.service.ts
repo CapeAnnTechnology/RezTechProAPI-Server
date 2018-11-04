@@ -2,9 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { throwError as ObservableThrowError, Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { VenueModel } from './../_models';
-import { RoomModel } from './../../shared/_models/room.model';
-import { MessageService, AuthService } from './../../shared/_services';
+
+import { BusinessModel, VenueModel, RoomModel } from './../_models';
+
+import { MessageService } from './message.service';
+import { AuthService } from './auth.service';
+
 import { environment } from './../../../environments/environment';
 
 const httpOptions = {
@@ -15,7 +18,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 
-export class VenueService {
+export class BusinessService {
 
   private apiUrl = environment.API_URI;  // URL to web api
 
@@ -44,6 +47,16 @@ export class VenueService {
   getVenuesByIds$(venueIds: string[]): Observable<VenueModel[]> {
     return this.http
       .post<VenueModel[]>(`${this.apiUrl}venues`, {"ids": venueIds }, {
+        headers: new HttpHeaders().set('Authorization', this._authHeader)
+      })
+      .pipe(
+        catchError((error) => this._handleError(error))
+      );
+  }
+
+  getBusinessesByIds$(businessIds: string[]): Observable<BusinessModel[]> {
+    return this.http
+      .post<BusinessModel[]>(`${this.apiUrl}doors`, {"ids": businessIds }, {
         headers: new HttpHeaders().set('Authorization', this._authHeader)
       })
       .pipe(

@@ -29,12 +29,20 @@ const appRoutes: Routes = [
     loadChildren: './venue/venue.module#VenueModule',
     canActivate: [
       AuthGuard,
-      AdminGuard,
+      // AdminGuard,
     ],
   },
   {
     path: 'room',
     loadChildren: './room/room.module#RoomModule',
+    canActivate: [
+      AuthGuard,
+      AdminGuard,
+    ],
+  },
+  {
+    path: 'door',
+    loadChildren: './door/door.module#DoorModule',
     canActivate: [
       AuthGuard,
       AdminGuard,

@@ -25,6 +25,14 @@ export class AuthService {
   loggedIn$ = new BehaviorSubject<boolean>(this.loggedIn);
   loggingIn: boolean;
   isAdmin: boolean;
+  isOwner: boolean;
+  isManager: boolean;
+  isEmployee: boolean;
+  isUser: boolean;
+  roles: string[] = [];
+  permissions: string[] = [];
+  groups: string[] = [];
+
   // Subscribe to token expiration stream
   refreshSub: Subscription;
 
@@ -81,7 +89,31 @@ export class AuthService {
     this.accessToken = authResult.accessToken;
     if (profile) {
       this.userProfile = profile;
+      // console.log(profile);
       this.isAdmin = this._checkAdmin(profile);
+
+      // Determine if Business Owner
+      this.isOwner = this._checkOwner(profile);
+
+      // Determine if Venue Manager
+      this.isManager = this._checkManager(profile);
+
+      // Determine if Employee
+      this.isEmployee = this._checkEmployee(profile);
+
+      this.isUser = (!this.isOwner)&&(!this.isManager)&&(!this.isEmployee);
+
+      // context.idToken[namespace + "permissions"] = user.permissions;
+      this.permissions = profile[AUTH_CONFIG.NAMESPACE+'/permissions'] || [];
+      // context.idToken[namespace + "groups"] = user.groups;
+      this.groups = profile[AUTH_CONFIG.NAMESPACE+'/groups'] || [];
+      // context.idToken[namespace + "roles"] = user.roles;
+      this.roles = profile[AUTH_CONFIG.NAMESPACE+'/roles'] || [];
+    }else{
+      this.isOwner = false;
+      this.isManager = false;
+      this.isEmployee = false;
+      this.isUser = true;
     }
     // Update login status in loggedIn$ stream
     this.setLoggedIn(true);
@@ -92,8 +124,27 @@ export class AuthService {
 
   private _checkAdmin(profile) {
     // Check if the user has admin role
-    const roles = profile[AUTH_CONFIG.NAMESPACE] || [];
+    const roles = profile[AUTH_CONFIG.NAMESPACE+'/roles'] || [];
     return roles.indexOf('admin') > -1;
+  }
+
+  private _checkOwner(profile) {
+    // Check if the user has admin role
+    const roles = profile[AUTH_CONFIG.NAMESPACE+'/roles'] || [];
+    // alert(roles);
+    return roles.indexOf('owner') > -1;
+  }
+
+  private _checkManager(profile) {
+    // Check if the user has admin role
+    const roles = profile[AUTH_CONFIG.NAMESPACE+'/roles'] || [];
+    return roles.indexOf('manager') > -1;
+  }
+
+  private _checkEmployee(profile) {
+    // Check if the user has admin role
+    const roles = profile[AUTH_CONFIG.NAMESPACE+'/roles'] || [];
+    return roles.indexOf('employee') > -1;
   }
 
   private _clearExpiration() {
@@ -109,10 +160,31 @@ export class AuthService {
     const navArr = [redirectArr[0] || '/'];
     const tabObj = redirectArr[1] ? { queryParams: { tab: redirectArr[1] }} : null;
 
+    // if Employee of single venue, redirect to rooms on login
+
+    let navArrNew = navArr;
+
+    if( this.isEmployee && !this.isManager && !this.isOwner ){
+      // is only an employee
+      // this.groups
+      const employed = this.groups.filter((group) => group.startsWith("employee"));
+
+      // console.log(employed);
+      // if( '/' == navArr[0] || null == navArr[0] || undefined == navArr[0] ){
+      // console.log(typeof(navArr));
+      if ( typeof(navArr) != 'object' && navArr == 'null' ) {
+        const venue = employed[0].split('|')[1];
+        navArrNew = ['/venue',venue,'rooms'];
+      }
+    }
+
+    // If venue has single room, redirect to room on login
+
+
     if (!tabObj) {
-      this.router.navigate(navArr);
+      this.router.navigate(navArrNew);
     } else {
-      this.router.navigate(navArr, tabObj);
+      this.router.navigate(navArrNew, tabObj);
     }
     // Redirection completed; clear redirect from storage
     this._clearRedirect();

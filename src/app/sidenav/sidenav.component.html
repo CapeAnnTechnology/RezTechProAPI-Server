@@ -9,7 +9,7 @@
       <mat-icon mat-list-icon>home</mat-icon>
       <span mat-line>Dashboard</span>
   </a>
-  <a *ngIf="auth.loggedIn"
+  <a *ngIf="auth.loggedIn && !auth.isUser"
      mat-list-item
      routerLink="venue"
      routerLinkActive="active"
@@ -17,7 +17,7 @@
       <mat-icon mat-list-icon>location_city</mat-icon>
       <span mat-line>Venue</span>
   </a>
-  <a *ngIf="auth.loggedIn"
+  <a *ngIf="auth.loggedIn && !auth.isUser"
      mat-list-item
      routerLink="capacity"
      routerLinkActive="active"
@@ -25,7 +25,7 @@
       <mat-icon mat-list-icon>import_export</mat-icon>
       <span mat-line>Capacity</span>
   </a>
-  <a *ngIf="auth.loggedIn"
+  <a *ngIf="auth.loggedIn && !auth.isUser"
      mat-list-item
      routerLink="chat"
      routerLinkActive="active"
@@ -33,7 +33,7 @@
       <mat-icon mat-list-icon>chat</mat-icon>
       <span mat-line>Chat</span>
   </a>
-  <a *ngIf="auth.loggedIn"
+  <a *ngIf="auth.loggedIn && !auth.isUser"
      mat-list-item
      routerLink="report"
      routerLinkActive="active"

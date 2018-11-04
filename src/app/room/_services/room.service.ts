@@ -4,7 +4,8 @@ import { AuthService } from './../../shared/_services';
 import { throwError as ObservableThrowError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from './../../../environments/environment';
-import { RoomModel } from './../_models/room.model';
+import { RoomModel } from './../../shared/_models/room.model';
+import { DoorModel } from './../../shared/_models/door.model';
 
 @Injectable()
 export class RoomService {
@@ -24,6 +25,17 @@ export class RoomService {
   getRoomById$(id: string): Observable<RoomModel> {
     return this.http
       .get<RoomModel>(`${this.apiUrl}room/${id}`, {
+        headers: new HttpHeaders().set('Authorization', this._authHeader)
+      })
+      .pipe(
+        catchError((error) => this._handleError(error))
+      );
+  }
+
+     // GET RSVPs by event ID
+  getDoorsByRoomId$(roomId: string): Observable<DoorModel[]> {
+    return this.http
+      .get<DoorModel[]>(`${this.apiUrl}room/${roomId}/doors`, {
         headers: new HttpHeaders().set('Authorization', this._authHeader)
       })
       .pipe(

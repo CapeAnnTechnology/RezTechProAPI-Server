@@ -10,6 +10,8 @@ import { MaterialModule } from './shared/material/material.module';
 
 import { AuthService } from './shared/_services';
 
+import { VenueService } from './venue/_services/venue.service';
+
 import { ChatModule } from './chat/chat.module';
 import { CapacityModule } from './capacity/capacity.module';
 // import { VenueModule } from './venue/venue.module';
@@ -28,35 +30,48 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { CallbackComponent } from './pages/callback/callback.component';
 import { HelpComponent } from './pages/help/help.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { VenueListComponent } from './home/venue-list/venue-list.component';
+import { VenueListCardComponent } from './home/venue-list-card/venue-list-card.component';
+import { RoomListCardComponent } from './home/room-list-card/room-list-card.component';
+import { BusinessListCardComponent } from './home/business-list-card/business-list-card.component';
+import { BusinessListComponent } from './home/business-list/business-list.component';
+
 // import { LoadingComponent } from './shared/loading.component';
 
 @NgModule({
   declarations: [
+    // LoadingComponent,
+    // VenueComponent
     AppComponent,
-    HeaderComponent,
+    CallbackComponent,
     FooterComponent,
+    HeaderComponent,
+    HelpComponent,
+    HomeComponent,
+    LogComponent,
+    ReportComponent,
     SidenavComponent,
     ToolbarComponent,
-    HomeComponent,
-    ReportComponent,
-    LogComponent,
-    // LoadingComponent,
-    CallbackComponent,
-    HelpComponent,
-    // VenueComponent
+    VenueListComponent,
+    VenueListCardComponent,
+    RoomListCardComponent,
+    BusinessListCardComponent,
+    BusinessListComponent
   ],
   imports: [
-    BrowserModule,
+    // VenueModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
-    MaterialModule,
-    ChatModule,
+    BrowserModule,
     CapacityModule,
-    // VenueModule,
-    NgxChartsModule
+    ChatModule,
+    HttpClientModule,
+    MaterialModule,
+    NgxChartsModule,
+    SharedModule,
   ],
-  providers: [Title, AuthService],
+  providers: [Title, AuthService, VenueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,8 +4,8 @@ import { AuthService } from './../../shared/_services';
 import { throwError as ObservableThrowError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from './../../../environments/environment';
-import { RoomModel } from './../_models/room.model';
-import { DoorModel } from './../_models/door.model';
+import { RoomModel } from './../../shared/_models/room.model';
+import { DoorModel } from './../../shared/_models/door.model';
 
 @Injectable()
 export class DoorService {

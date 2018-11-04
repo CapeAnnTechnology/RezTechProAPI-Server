@@ -1,0 +1,20 @@
+<h4>Venues</h4>
+
+<ng-template [ngIf]="venues.length">
+  <mat-list dense>
+    <mat-list-item *ngFor="let venue of venues">
+      <a mat-button [routerLink]="['/venue', venue._id]">
+         <mat-icon>location_city</mat-icon>
+         <span>{{venue.title}}</span>
+       </a>
+      <a mat-button [routerLink]="['/venue', venue._id,'rooms']">
+         <mat-icon>local_bar</mat-icon>
+         <span>View Rooms</span>
+       </a>
+    </mat-list-item>
+  </mat-list>
+</ng-template>
+
+<ng-template [ngIf]="!venues.length" class="alert alert-info">
+  <h5>No Venues Associated with your account.</h5>
+</ng-template>

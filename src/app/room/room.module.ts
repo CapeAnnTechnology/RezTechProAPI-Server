@@ -5,7 +5,7 @@ import { SharedModule } from './../shared';
 import { SocketService, UtilsService } from './../shared/_services';
 
 import { RoomService } from './_services/room.service';
-import { DoorService } from './_services/door.service';
+// import { DoorService } from './_services/door.service';
 
 import { RouterModule } from '@angular/router';
 import { ROOM_ROUTES } from './_routes/room.routes';
@@ -25,7 +25,7 @@ import { RoomDoorsComponent } from './room-doors/room-doors.component';
     HttpClientModule,
     RouterModule.forChild(ROOM_ROUTES),
   ],
-  providers: [ RoomService, UtilsService, DoorService ],
+  providers: [ RoomService, UtilsService ],
   declarations: [
     RoomComponent,
     RoomDetailComponent,

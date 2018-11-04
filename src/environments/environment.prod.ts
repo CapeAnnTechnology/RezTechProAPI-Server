@@ -7,5 +7,5 @@ export const environment = {
   BASE_URI: 'https://reztechpro-www.herokuapp.com',
   AUTH0_CLIENT_DOMAIN: 'reztechpro.auth0.com',
   AUTH0_CLIENT_ID: 'SJLqm1Itq4vSMmc8NhEl59AgV5zVAHTu',
-  NAMESPACE: 'https://reztechpro.com/roles'
+  NAMESPACE: 'https://reztechpro.com'
 };

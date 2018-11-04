@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CdkTableModule} from '@angular/cdk/table';
+// import {NestedTreeControl} from '@angular/cdk/tree';
 import {
   MatFormFieldModule,
   MatAutocompleteModule,
@@ -57,6 +58,7 @@ import {
   ],
   exports: [
     CdkTableModule,
+    // NestedTreeControl,
     MatFormFieldModule,
     MatAutocompleteModule,
     // MatBadgeModule,
@@ -65,7 +67,7 @@ import {
     // MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
-    // MatChipsModule,
+    MatChipsModule,
     // MatStepperModule,
     MatDatepickerModule,
     MatDialogModule,
@@ -92,7 +94,7 @@ import {
     // MatTabsModule,
     MatToolbarModule,
     // MatTooltipModule,
-    // MatTreeModule,
+    MatTreeModule,
   ],
   declarations: [],
   providers: [

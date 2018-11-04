@@ -11,7 +11,7 @@ export const environment = {
   BASE_URI: 'http://10.211.55.16:4200',
   AUTH0_CLIENT_DOMAIN: 'reztechpro.auth0.com',
   AUTH0_CLIENT_ID: 'SJLqm1Itq4vSMmc8NhEl59AgV5zVAHTu',
-  NAMESPACE: 'https://reztechpro.com/roles'
+  NAMESPACE: 'https://reztechpro.com'
 };
 
 /*

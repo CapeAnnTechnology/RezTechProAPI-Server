@@ -6,7 +6,7 @@ import { SocketService, UtilsService } from './../../shared/_services';
 
 import { Subscription } from 'rxjs';
 
-import { RoomModel } from './../../room/_models/room.model';
+import { RoomModel } from './../../shared/_models/room.model';
 
 import { ActionModel, EventModel, MessageModel, UserModel } from './../../shared/_models';
 

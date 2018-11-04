@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { EventModel, GuestModel, MessageModel } from './../_models';
 
-import { RoomModel } from './../../room/_models/room.model';
+import { RoomModel } from './../_models/room.model';
 
 import { environment } from './../../../environments/environment';
 

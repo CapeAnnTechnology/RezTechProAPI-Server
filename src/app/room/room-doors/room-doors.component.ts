@@ -1,15 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { RoomService } from './../_services/room.service';
-import { DoorService } from './../_services/door.service';
+// import { DoorService } from './../_services/door.service';
+
 import { SocketService, UtilsService } from './../../shared/_services';
 
 import { Title } from '@angular/platform-browser';
 
 import { Subscription } from 'rxjs';
 
-import { RoomModel } from './../_models/room.model';
-import { DoorModel } from './../_models/door.model';
+import { RoomModel } from './../../shared/_models/room.model';
+import { DoorModel } from './../../shared/_models/door.model';
 
 import { ActionModel, EventModel, MessageModel, UserModel } from './../../shared/_models';
 
@@ -35,7 +36,6 @@ export class RoomDoorsComponent implements OnInit, OnDestroy {
 
 
   constructor(
-    private doorService: DoorService,
     private roomService: RoomService,
     private route: ActivatedRoute,
     private socketService: SocketService,
@@ -76,7 +76,7 @@ export class RoomDoorsComponent implements OnInit, OnDestroy {
   private _getDoors() {
     this.loading = true;
     // GET event by ID
-    this.doorsSub = this.doorService
+    this.doorsSub = this.roomService
       .getDoorsByRoomId$(this.id)
       .subscribe(
         res => {
