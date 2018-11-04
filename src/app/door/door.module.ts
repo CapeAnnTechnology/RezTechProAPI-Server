@@ -16,7 +16,7 @@ import { DOOR_ROUTES } from './_routes/door.routes';
   imports: [
     CommonModule,
     RouterModule.forChild(DOOR_ROUTES),
-
+    SharedModule,
   ],
   declarations: [DoorComponent, DoorDetailComponent]
 })
