@@ -20,7 +20,6 @@ import { DOOR_ROUTES } from './_routes/door.routes';
     RouterModule.forChild(DOOR_ROUTES),
     HttpClientModule,
     SharedModule,
-
   ],
   providers: [ DoorService, UtilsService ],
   declarations: [DoorComponent, DoorDetailComponent]

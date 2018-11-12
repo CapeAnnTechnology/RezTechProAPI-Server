@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   private initModel(): void {
   }
 
-  onToggle( toggle: boolean ) {
+  onToggle() {
     this.opened = !this.opened;
   }
 }
