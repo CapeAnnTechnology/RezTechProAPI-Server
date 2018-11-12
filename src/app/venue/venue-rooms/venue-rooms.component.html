@@ -27,7 +27,11 @@
     </ng-template>
   </mat-card-content>
   <mat-card-actions>
-    <a mat-button [routerLink]="['/room', room._id, 'doors']"><mat-icon>meeting_room</mat-icon> VIEW DOORS</a>
+     <ng-template [ngIf]="room.doors">
+         <a *ngFor="let door of room.doors" mat-button [routerLink]="['/door', door._id]">
+            <mat-icon>meeting_room</mat-icon> VIEW {{door.title | uppercase }}
+         </a>
+     </ng-template>
   </mat-card-actions>
 </mat-card>
 

@@ -15,13 +15,13 @@
     <mat-card class="example-card">
     <mat-card-header>
       <mat-icon mat-card-avatar mat-list-icon class="md-40">local_bar</mat-icon>
-      <mat-card-title>{{room.title}}</mat-card-title>
-      <mat-card-subtitle>Venue: {{room.venueId.title}}</mat-card-subtitle>
+      <mat-card-title>{{door.roomId.title}}</mat-card-title>
+      <mat-card-subtitle>Venue: {{door.roomId.venueId.title}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <p>
-        <span>Occupancy:</span> {{room.occupancy}}
-        <span>Capacity:</span> {{room.capacity}}
+        <span>Occupancy:</span> {{door.roomId.occupancy}}
+        <span>Capacity:</span> {{door.roomId.capacity}}
         <span>Filled:</span> {{progress}}%
       </p>
       <p>

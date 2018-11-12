@@ -1,6 +1,8 @@
+import { RoomModel } from './room.model';
+
 export interface DoorModel {
    _id: string;
-   roomId: string;
+   roomId: RoomModel;
    title: string;
 }
 

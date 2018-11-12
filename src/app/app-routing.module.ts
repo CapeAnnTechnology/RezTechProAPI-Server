@@ -37,7 +37,7 @@ const appRoutes: Routes = [
     loadChildren: './room/room.module#RoomModule',
     canActivate: [
       AuthGuard,
-      AdminGuard,
+      // AdminGuard,
     ],
   },
   {
@@ -45,7 +45,7 @@ const appRoutes: Routes = [
     loadChildren: './door/door.module#DoorModule',
     canActivate: [
       AuthGuard,
-      AdminGuard,
+      // AdminGuard,
     ],
   },
   {
@@ -53,7 +53,7 @@ const appRoutes: Routes = [
     component: CapacityComponent,
     canActivate: [
       AuthGuard,
-      AdminGuard,
+      // AdminGuard,
     ],
   },
   {
