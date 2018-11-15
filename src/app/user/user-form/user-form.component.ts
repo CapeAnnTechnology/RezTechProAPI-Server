@@ -85,15 +85,18 @@ export class UserFormComponent implements OnInit, OnDestroy {
       // public middle_name: string,
       // public family_name: string,
       // public suffix?: boolean,
+      if ( undefined === this.user.user_metadata ) {
+        return new UserFormModel(null, null, null, null, null, null );
+      }
 
       // const _shortDate = 'M/d/yyyy';
       return new UserFormModel(
-        this.user.user_metadata.name,
-        this.user.user_metadata.given_name,
-        this.user.user_metadata.family_name,
-        this.user.user_metadata.prefix,
-        this.user.user_metadata.middle_name,
-        this.user.user_metadata.suffix,
+        this.user.user_metadata.name ? this.user.user_metadata.name : null,
+        this.user.user_metadata.given_name ? this.user.user_metadata.given_name : null,
+        this.user.user_metadata.family_name ? this.user.user_metadata.family_name : null,
+        this.user.user_metadata.prefix ? this.user.user_metadata.prefix : null,
+        this.user.user_metadata.middle_name ? this.user.user_metadata.middle_name : null,
+        this.user.user_metadata.suffix ? this.user.user_metadata.suffix : null
       );
     }
   }

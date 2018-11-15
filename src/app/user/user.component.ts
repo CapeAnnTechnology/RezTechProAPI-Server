@@ -15,7 +15,7 @@ import { UserModel } from './../shared/_models';
 })
 export class UserComponent implements OnInit, OnDestroy {
   user: UserModel;
-  pageTitle = 'User User';
+  pageTitle = 'User Profile';
   userSub: Subscription;
   routeSub: Subscription;
   loading: boolean;
