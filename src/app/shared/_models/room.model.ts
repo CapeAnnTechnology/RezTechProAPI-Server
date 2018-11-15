@@ -1,8 +1,9 @@
 import { DoorModel } from './door.model';
+import { VenueModel } from './venue.model';
 
 export interface RoomModel {
    _id: string;
-   venueId: string;
+   venueId: VenueModel;
    title: string;
    capacity: number;
    occupancy: number;

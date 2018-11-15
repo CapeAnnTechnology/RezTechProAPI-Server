@@ -48,7 +48,6 @@ export class BusinessListComponent implements OnInit, OnDestroy {
       .getBusinessesByIds$(this.ids)
       .subscribe(
         res => {
-          console.log(res);
           this.businesses = res;
           this.loading = false;
         },

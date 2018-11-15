@@ -99,8 +99,10 @@ export class DoorDetailComponent implements OnInit, OnDestroy {
       .subscribe(
         res => {
           this.door = res;
+          // console.log(this.door);
           this.loading = false;
           this.pageTitle = res.title + " Door";
+          this.progress = res.roomId.progress;
           // this.eventPast = this.utils.eventPast(this.event.endDatetime);
         },
         err => {

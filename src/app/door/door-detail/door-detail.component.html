@@ -4,12 +4,19 @@
 
   <ng-template [ngIf]="door">
     <a *ngIf="auth.loggedIn && auth.isAdmin"
-       routerLink="['/door',door._id,'edit']"
+       [routerLink]="['/door',door._id,'edit']"
        mat-button
        color="accent"
        class="alignright"
        style="float: right;">
          <mat-icon mat-list-icon>edit</mat-icon> EDIT DOOR
+    </a>
+    <a *ngIf="auth.loggedIn"
+       [routerLink]="['/venue', door.roomId.venueId._id, 'rooms']"
+       mat-button
+       class="alignright"
+       style="float: right;">
+         <mat-icon mat-list-icon>local_bar</mat-icon> BACK TO {{door.roomId.venueId.title | uppercase}}
     </a>
     <h2>{{pageTitle}}</h2>
     <mat-card class="example-card">

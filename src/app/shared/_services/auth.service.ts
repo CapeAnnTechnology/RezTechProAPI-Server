@@ -171,7 +171,7 @@ export class AuthService {
 
       // console.log(employed);
       // if( '/' == navArr[0] || null == navArr[0] || undefined == navArr[0] ){
-      console.log(navArr);
+      // console.log(navArr);
       if ( employed.length === 1 && navArr.length === 1 && navArr[0] === "null"  ) {
         const venue = employed[0].split('|')[1];
         navArrNew = ['/venue',venue,'rooms'];

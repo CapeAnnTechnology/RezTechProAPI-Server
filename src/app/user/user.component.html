@@ -1,0 +1,30 @@
+<rez-loading *ngIf="loading"></rez-loading>
+<ng-template [ngIf]="utils.isLoaded(loading)">
+
+<ng-template [ngIf]="user">
+
+<mat-card class="example-card">
+  <mat-card-content>
+    <mat-list role="list">
+     <mat-list-item role="listitem">Prefix: {{user.user_metadata.prefix}}</mat-list-item>
+     <mat-list-item role="listitem">First Name: {{user.user_metadata.given_name}}</mat-list-item>
+     <mat-list-item role="listitem">Middle Name: {{user.user_metadata.middle_name}}</mat-list-item>
+     <mat-list-item role="listitem">Last Name: {{user.user_metadata.family_name}}</mat-list-item>
+     <mat-list-item role="listitem">Suffix: {{user.user_metadata.suffix}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-button [routerLink]="['/user', id, 'update']">
+	<mat-icon>person</mat-icon> Edit User Details</a>
+  </mat-card-actions>
+</mat-card>
+
+
+
+
+
+
+
+</ng-template>
+
+</ng-template>

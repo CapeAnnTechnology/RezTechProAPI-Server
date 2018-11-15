@@ -16,15 +16,9 @@
       <span>Capacity:</span> {{room.capacity}}
       <span>Filled:</span> {{room.progress}}%
     </p>
-    <ng-template [ngIf]="room.progress">
       <p >
         <mat-progress-bar mode="determinate" value="{{room.progress}}"></mat-progress-bar>
       </p>
-    </ng-template>
-    <ng-template [ngIf]="!room.progress">
-      <p >
-      </p>
-    </ng-template>
   </mat-card-content>
   <mat-card-actions>
      <ng-template [ngIf]="room.doors">

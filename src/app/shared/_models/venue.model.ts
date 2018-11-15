@@ -1,8 +1,9 @@
 import { RoomModel } from './room.model';
+import { BusinessModel } from './business.model';
 
 export interface VenueModel {
    _id: String;
-   businessId: String;
+   businessId: BusinessModel;
    title: String;
    location: String;
    phoneNumber: String;

@@ -49,6 +49,14 @@ const appRoutes: Routes = [
     ],
   },
   {
+    path: 'user',
+    loadChildren: './user/user.module#UserModule',
+    canActivate: [
+      AuthGuard,
+      // AdminGuard,
+    ],
+  },
+  {
     path: 'capacity',
     component: CapacityComponent,
     canActivate: [

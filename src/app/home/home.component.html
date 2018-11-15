@@ -52,7 +52,7 @@
 
 <rez-business-list-card *ngIf="auth.loggedIn && auth.isOwner" [groups]="auth.groups"></rez-business-list-card>
 
-<rez-room-list-card *ngIf="auth.loggedIn && auth.isEmployee"></rez-room-list-card>
+<rez-room-list-card *ngIf="auth.loggedIn && auth.isAdmin"></rez-room-list-card>
 
 <rez-venue-list-card *ngIf="auth.loggedIn && !auth.isUser && !auth.isEmployee"></rez-venue-list-card>
 
@@ -73,7 +73,7 @@
   </mat-card-actions>
 </mat-card>
 
-<mat-card class="example-card" *ngIf="auth.loggedIn && !auth.isUser">
+<mat-card class="example-card" *ngIf="auth.loggedIn && auth.isAdmin && !auth.isUser">
   <mat-card-header>
     <mat-icon mat-card-avatar mat-list-icon class="md-36">chat</mat-icon>
     <mat-card-title>Chat</mat-card-title>

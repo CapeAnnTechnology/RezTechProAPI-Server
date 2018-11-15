@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChildren, ViewChild, AfterViewInit, QueryList, ElementRef } from '@angular/core';
 import { MatDialog, MatDialogRef, MatList, MatListItem } from '@angular/material';
 
-import { ActionModel, EventModel, MessageModel, UserModel } from './../shared/_models';
+import { ActionModel, EventModel, MessageModel, UserModel, UserMetaModel } from './../shared/_models';
 
 import { SocketService } from './../shared/_services';
 
@@ -66,11 +66,9 @@ export class ChatComponent implements OnInit, AfterViewInit {
   }
 
   private initModel(): void {
-    const randomId = this.getRandomId();
-    this.user = {
-      id: randomId,
-      avatar: `${AVATAR_URL}/${randomId}.png`
-    };
+    const randomId:number = this.getRandomId();
+    const metadata:UserMetaModel = new UserMetaModel(null,null,null,null,null,null,`${AVATAR_URL}/${randomId}.png`);
+    this.user = new UserModel(null,null,null,metadata,randomId.toString());
   }
 
   private initIoConnection(): void {
@@ -100,7 +98,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
   public onClickUserInfo() {
     this.openUserPopup({
       data: {
-        username: this.user.name,
+        username: this.user.user_metadata.name,
         title: 'Edit Details',
         dialogType: DialogUserType.EDIT
       }
@@ -114,7 +112,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
         return;
       }
 
-      this.user.name = paramsDialog.username;
+      this.user.user_metadata.name = paramsDialog.username;
       if (paramsDialog.dialogType === DialogUserType.NEW) {
         this.initIoConnection();
         this.sendNotification(paramsDialog, ActionModel.JOINED);
@@ -148,7 +146,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
       message = {
         action: action,
         content: {
-          username: this.user.name,
+          username: this.user.user_metadata.name,
           previousUsername: params.previousUsername
         }
       };

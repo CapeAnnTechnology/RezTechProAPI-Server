@@ -95,6 +95,7 @@ export class RoomDetailComponent implements OnInit, OnDestroy {
       .subscribe(
         res => {
           this.room = res;
+          this.pageTitle = this.room.title;
           this.loading = false;
           // this.eventPast = this.utils.eventPast(this.event.endDatetime);
         },

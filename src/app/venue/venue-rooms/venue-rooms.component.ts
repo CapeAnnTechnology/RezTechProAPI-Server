@@ -39,7 +39,7 @@ export class VenueRoomsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.title.setTitle( this.pageTitle );
     this._routeSubs();
-    // this.initIoConnection();
+    this.initIoConnection();
   }
 
   private _routeSubs() {
@@ -98,7 +98,9 @@ export class VenueRoomsComponent implements OnInit, OnDestroy {
       .getRoomsByVenueId$(this.id)
       .subscribe(
         res => {
+          console.log(res);
           this.rooms = res;
+          this.pageTitle = "Rooms in " + this.rooms[0].venueId.title;
           // console.log(this.rooms[0].doors);
           this.loading = false;
           // this.eventPast = this.utils.eventPast(this.event.endDatetime);
