@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  SERVER_URL: 'https://reztechpro-vip.herokuapp.com',
+  SERVER_URL: 'https://reztechpro-api.herokuapp.com',
   SSO_URI: 'https://sso.reztechpro.com/',
   API_URI: 'https://reztechpro-api.herokuapp.com/v3.0/',
   BASE_API: 'https://reztechpro-api.herokuapp.com/v3.0/',
