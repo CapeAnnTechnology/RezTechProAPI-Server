@@ -110,6 +110,7 @@ export class RoomDetailComponent implements OnInit, OnDestroy {
 
   public sendGuestEnter(): void {
     this.socketService.guest({
+      doorId: this.id,
       roomId: this.id,
       capacity: Math.floor(this.capacity),
       action: ActionModel.ENTER
@@ -118,6 +119,7 @@ export class RoomDetailComponent implements OnInit, OnDestroy {
 
   public sendGuestExit(): void {
     this.socketService.guest({
+      doorId: this.id,
       roomId: this.id,
       capacity: Math.floor(this.capacity),
       action: ActionModel.EXIT
